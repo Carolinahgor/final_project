@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'questions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -10,8 +11,11 @@ Rails.application.routes.draw do
   # get '/questions/new' => 'questions#new'
   # post '/questions/create' => 'questions#create'
 
+
   resources :questions do
-    resources :answers
+    resources :answers do
+      post 'upvote'
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

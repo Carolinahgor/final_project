@@ -1,4 +1,8 @@
-<h1>hola <%= current_user.name %></h1>
+<% if current_user %>
+  <h1>Hello <%= current_user.name.capitalize %></h1>
+<% else %>
+  <h1>Hello</h1>
+<% end %>
 
 <h1>  Question feed </h1>
 <% @questions.each do |question| %>

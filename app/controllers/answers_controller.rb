@@ -35,6 +35,11 @@ class AnswersController < ApplicationController
       end
   end
 
+  def upvote
+    @answer = Answer.find(params[:question_id])
+    @answer.votes.create
+    redirect_to(question_path(@answer.question))
+  end
 
   private
   def answer_params
