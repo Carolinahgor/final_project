@@ -36,7 +36,7 @@ class AnswersController < ApplicationController
   end
 
   def upvote
-    @answer = Answer.find(params[:question_id])
+    @answer = Answer.find(params[:answer_id])
     @answer.votes.create
     redirect_to(question_path(@answer.question))
   end
