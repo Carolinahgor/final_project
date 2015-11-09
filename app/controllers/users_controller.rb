@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   def new
   end
 
+  def current_user
+    @current_user =  User.find_by(session[user_id])
+  end
+
   def create
     user = User.new(user_params)
     if user.save
@@ -17,6 +21,6 @@ class UsersController < ApplicationController
     def user_params
      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-  end
+
 
 end

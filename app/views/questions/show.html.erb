@@ -1,0 +1,22 @@
+<h1> Question asked </h1>
+<h2> title </h2>
+<%= @question.title %>
+<h2> description </h2>
+<%= @question.description %>
+<h2> Answers </h2>
+
+<ol>
+<%  @question.answers.each do |answer| %>
+  <li><%= answer.response %> <%= link_to "Edit", edit_question_answer_path(@question, answer) %></li>
+<% end %>
+</ol>
+
+<p>
+<p>
+<%= link_to 'edit', edit_question_path %>
+
+<%= link_to 'reply', new_question_answer_path(@question) %>
+</p>
+</p>
+
+<%= link_to "Back", :back %>
