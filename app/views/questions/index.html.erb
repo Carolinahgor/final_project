@@ -10,6 +10,7 @@
 <ul>
 <li><%= link_to question.title, question_path(question.id) %>
 <%= link_to 'answer this question', new_question_answer_path(question) %>
+<%= image_tag avatar_url(question.user, 35) %>
 </li>
 </ul>
 <% end %>
