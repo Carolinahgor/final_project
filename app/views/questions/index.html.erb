@@ -5,12 +5,12 @@
   <h5>Hello</h5>
 <% end %>
 
-<h3>  Question feed </h3>
+<h4>  Question feed </h4>
 <% @questions.each do |question| %>
 <ul>
 <li><%= link_to question.title, question_path(question.id) %>
 <%= link_to 'answer this question', new_question_answer_path(question) %>
-<%= image_tag avatar_url(question.user, 35) %>
+<%= image_tag avatar_url(question.user, 35), class: "avatar" %>
 </li>
 </ul>
 <% end %>

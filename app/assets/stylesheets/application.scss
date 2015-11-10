@@ -7,8 +7,10 @@ $primary-color: #03a9f4 !default;
 .logo {
   font-family: 'Bitter', 'serif';
   font-size: 30px;
-
-
 }
 
-
+.avatar {
+border-radius: 50%;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+}
