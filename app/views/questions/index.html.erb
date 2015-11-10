@@ -1,10 +1,11 @@
+
 <% if current_user %>
-  <h1>Hello <%= current_user.name.capitalize %></h1>
+  <h5>Hello <%= current_user.name.capitalize %></h5>
 <% else %>
-  <h1>Hello</h1>
+  <h5>Hello</h5>
 <% end %>
 
-<h1>  Question feed </h1>
+<h3>  Question feed </h3>
 <% @questions.each do |question| %>
 <ul>
 <li><%= link_to question.title, question_path(question.id) %>
@@ -14,3 +15,4 @@
 <% end %>
 
 <%= link_to 'add a question', new_question_path %>
+
