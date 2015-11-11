@@ -9,11 +9,12 @@
 <% @questions.each do |question| %>
 <ul>
 <li><%= link_to question.title, question_path(question.id) %>
-<%= link_to 'answer this question', new_question_answer_path(question) %>
 <%= image_tag avatar_url(question.user, 35), class: "avatar" %>
+<p><%= link_to 'answer this question', new_question_answer_path(question) %></p>
 </li>
 </ul>
 <% end %>
 
 <%= link_to 'add a question', new_question_path %>
+<a href="javascript:void(0)" class="btn btn-info">Info<div class="ripple-wrapper"></div></a>
 
