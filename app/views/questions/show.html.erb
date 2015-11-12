@@ -15,21 +15,23 @@
   <li><%= answer.response %>
     <%= pluralize(answer.votes.count, "vote") %>
     <%= link_to "<i class='material-icons'>add</i>".html_safe, question_answer_upvote_path(@question,answer), class: "btn-floating btn-extra-small waves-effect waves-light red", method: :post  %>
-    <!-- <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons"> -->
-    </i></a>
     <% if answer.user == current_user %>
       <%= link_to "Edit", edit_question_answer_path(@question, answer) %>
    <% end %>
+    <p>Author <%= @question.user.name%></p>
+    </i></a>
+
  </li>
 <% end %>
 </ol>
 <p>
 <p>
 <% if @question.user == current_user %>
-<%= link_to 'edit', edit_question_path %>
+<%= link_to 'Edit', edit_question_path %>
+<%= link_to "Delete", @question, method: "delete" %>
 <% end %>
 
-<%= link_to 'add a new answer for this question', new_question_answer_path(@question) %>
+<%= link_to 'Add a new answer for this question', new_question_answer_path(@question) %>
 </p>
 </p>
 

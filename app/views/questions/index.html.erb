@@ -24,7 +24,9 @@
 <p>
     Tags: <%= raw question.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>
+<% if current_user %>
 <p><%= link_to 'answer this question', new_question_answer_path(question) %></p>
+<% end %>
 </li>
 </ul>
 <% end %>
