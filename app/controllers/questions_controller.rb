@@ -1,8 +1,13 @@
 class QuestionsController < ApplicationController
 
   def index
-    @questions = Question.all
-    @user = current_user
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+      @user = current_user
+    else
+      @questions = Question.all
+      @user = current_user
+    end
   end
 
   def new
@@ -19,6 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    p params
     @question = current_user.questions.new(question_params)
     if @question.save
       redirect_to question_path(@question.id), notice:"your question #{@question.title} was sucessfully created"
@@ -26,6 +32,7 @@ class QuestionsController < ApplicationController
       redirect_to '/questions/new'
     end
   end
+
 
   def update
     @question = Question.find(params[:id])
@@ -39,6 +46,6 @@ class QuestionsController < ApplicationController
 
    private
     def question_params
-     params.require(:question).permit(:title, :description, :user_id)
+     params.require(:question).permit(:title, :description, :user_id, :tag_list)
     end
 end

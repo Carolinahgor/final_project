@@ -5,16 +5,29 @@
   <h5>Hello</h5>
 <% end %>
 
-<h4>  Question feed </h4>
+
+<!-- this is showing the most popular tags -->
+<div id="tag_cloud">
+  <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+<!-- this is showing the most popular tags -->
+
+
+<h4>Question feed</h4>
+
 <% @questions.each do |question| %>
 <ul>
-<li><%= link_to question.title, question_path(question.id) %>
-<%= image_tag avatar_url(question.user, 35), class: "avatar" %>
+<li><h4><%= link_to question.title, question_path(question.id) %>
+<%= image_tag avatar_url(question.user, 35), class: "avatar" %></h4>
+<p>
+    Tags: <%= raw question.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+</p>
 <p><%= link_to 'answer this question', new_question_answer_path(question) %></p>
 </li>
 </ul>
 <% end %>
 
 <%= link_to 'add a question', new_question_path %>
-<a href="javascript:void(0)" class="btn btn-info">Info<div class="ripple-wrapper"></div></a>
 

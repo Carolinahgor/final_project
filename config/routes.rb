@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-
+  get 'tags/:tag', to: 'questions#index', as: :tag
   # get '/questions/new' => 'questions#new'
   # post '/questions/create' => 'questions#create'
 
