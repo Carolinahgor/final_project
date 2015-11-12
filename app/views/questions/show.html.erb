@@ -31,7 +31,9 @@
 <%= link_to "Delete", @question, method: "delete" %>
 <% end %>
 
+<% if current_user %>
 <%= link_to 'Add a new answer for this question', new_question_answer_path(@question) %>
+<% end %>
 </p>
 </p>
 
