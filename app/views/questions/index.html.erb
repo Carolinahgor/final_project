@@ -20,7 +20,7 @@
 <% @questions.each do |question| %>
 <ul>
 <li><h4><%= link_to question.title, question_path(question.id) %>
-<%= image_tag avatar_url(question.user, 35), class: "avatar" %></h4>
+<%= image_tag avatar_url(question.user, 35), class: "avatargravatar" %></h4>
 <p>
     Tags: <%= raw question.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
 </p>

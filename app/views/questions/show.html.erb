@@ -18,7 +18,7 @@
     <% if answer.user == current_user %>
       <%= link_to "Edit", edit_question_answer_path(@question, answer) %>
    <% end %>
-    <p>Author <%= @question.user.name%></p>
+    <p>Added by <%= @question.user.name%></p>
     </i></a>
 
  </li>

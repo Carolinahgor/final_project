@@ -1,12 +1,4 @@
-
-@import url(https://fonts.googleapis.com/css?family=Bitter);
-
-.logo {
-  font-family: 'Bitter', 'serif';
-  font-size: 30px;
-}
-
-.avatar {
+.avatargravatar {
 border-radius: 50%;
 -moz-border-radius: 50%;
 -webkit-border-radius: 50%;
